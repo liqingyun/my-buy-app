@@ -21,6 +21,7 @@ var Mine = React.createClass({
     return (
       <ScrollView>
         <View style = {{marginTop: 20}}>
+          {/* 修改 git config 配置 */}
           <MyCell
             leftIconName = "draft"
             leftTitle = "我的钱包"
