@@ -15,6 +15,7 @@ import {
 
 /**---导入外部组件---**/
 var MyCell = require('./XMGCommomMycell');
+var MineMiddleView = require('./XMGMineMiddleView');
 
 var Mine = React.createClass({
   render() {
@@ -22,6 +23,15 @@ var Mine = React.createClass({
       <ScrollView
         style={styles.scrollViewStyle}
       >
+        <View style = {{marginTop: 20}}>
+            {/* 修改 git config 配置 */}
+          <MyCell
+              leftIconName = "collect"
+              leftTitle = "我的订单"
+              rightTitle = "查看全部订单"
+          />
+          <MineMiddleView />
+        </View>
         <View style = {{marginTop: 20}}>
           {/* 修改 git config 配置 */}
           <MyCell
