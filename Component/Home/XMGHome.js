@@ -13,14 +13,20 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  Platform
+  Platform,
+  ScrollView
 } from 'react-native';
 
 var Dimensions = require('Dimensions');
 var {width, height} = Dimensions.get('window');
 
 /**------导入外部的组件类------**/
-var HomeDetail = require('./XMGHomeDetail')
+var HomeDetail = require('./XMGHomeDetail');
+var TopView = require('./XMGTopView');
+var MiddleView = require('./XMGHomeMiddleView');
+var MiddleBottomView = require('./XMGMiddleBottomView');
+var ShopCenter = require('./XMGShopCenter');
+
 
 var Home = React.createClass({
   render() {
@@ -28,11 +34,19 @@ var Home = React.createClass({
       <View style={styles.container}>
         {/* 首页的导航条 */}
         {this.renderNavBar()}
-        <TouchableOpacity onPress={() => {this.pushToDetail()}}>
-          <Text style={styles.welcome}>
-            首页
-          </Text>
-        </TouchableOpacity>
+        {/* 首页的主要内容 */}
+        <ScrollView>
+          {/* 头部的View */}
+          <TopView />
+          {/* 中间的内容 */}
+          <MiddleView />
+          {/* 中间下半部分的内容 */}
+          <MiddleBottomView
+            popTopHome={(data) => {this.pushToDetail()}}
+          />
+          {/* 购物中心 */}
+          <ShopCenter />
+        </ScrollView>
       </View>
     );
   },
