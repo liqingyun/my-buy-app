@@ -45,10 +45,12 @@ var InnerView = React.createClass({
     },
     render() {
         return(
-            <View>
-                <Image source={{uri: this.props.iconName}} style={{width: 30, height: 20}} />
-                <Text>{this.props.title}</Text>
-            </View>
+            <TouchableOpacity activeOpacity={0.5} onPress={()=>{alert('0')}}>
+              <View style={styles.innerViewStyle}>
+                <Image source={{uri: this.props.iconName}} style={{width:40, height:30, marginBottom:3}}/>
+                <Text style={{color:'gray'}}>{this.props.title}</Text>
+              </View>
+            </TouchableOpacity>
         );
     }
 });
@@ -59,11 +61,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#fff',
+        // 设置主轴的对齐方式
+        justifyContent:'space-around'
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    innerViewStyle:{
+        width:70,
+        height:70,
+
+        // 水平和垂直居中
+        justifyContent:'center',
+        alignItems:'center'
     }
 });
 

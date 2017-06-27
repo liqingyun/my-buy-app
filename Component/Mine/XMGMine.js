@@ -16,13 +16,19 @@ import {
 /**---导入外部组件---**/
 var MyCell = require('./XMGCommomMycell');
 var MineMiddleView = require('./XMGMineMiddleView');
+var HeaderView = require('./XMGMineHeaderView');
 
 var Mine = React.createClass({
   render() {
     return (
       <ScrollView
         style={styles.scrollViewStyle}
+        contentInset = {{top: -200}}
+        contentOffset = {{y:200}}
       >
+        {/*头部的View*/}
+        <HeaderView />
+
         <View style = {{marginTop: 20}}>
             {/* 修改 git config 配置 */}
           <MyCell
